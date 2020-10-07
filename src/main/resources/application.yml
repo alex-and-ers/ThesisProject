@@ -1,0 +1,12 @@
+spring:
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+  datasource:
+    platform: mysql
+    url: jdbc:mysql://localhost:3306/devpub?serverTimezone=UTC
+    username: root
+    password: Emarif25
+    driverClassName: com.mysql.cj.jdbc.Driver
