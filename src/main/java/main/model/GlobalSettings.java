@@ -14,21 +14,28 @@ public class GlobalSettings
     @NotNull
     private int id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "MULTIUSER_MODE")
     @NotNull
-    private String code;
+    private YesNoEnum multiuserMode;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "POST_PREMODERATION")
     @NotNull
-    private String name;
+    private YesNoEnum postPremoderation;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "STATISTICS_IS_PUBLIC")
     @NotNull
-    private String value;
+    private YesNoEnum statisticsIsPublic;
 
-    public GlobalSettings(@NotNull int id, @NotNull String code, @NotNull String name, @NotNull String value)
+    public GlobalSettings(@NotNull int id, @NotNull YesNoEnum multiuserMode,
+                          @NotNull YesNoEnum postPremoderation, @NotNull YesNoEnum statisticsIsPublic)
     {
         this.id = id;
-        this.code = code;
-        this.name = name;
-        this.value = value;
+        this.multiuserMode = multiuserMode;
+        this.postPremoderation = postPremoderation;
+        this.statisticsIsPublic = statisticsIsPublic;
     }
 
     public int getId() {
@@ -39,27 +46,27 @@ public class GlobalSettings
         this.id = id;
     }
 
-    public String getCode() {
-        return code;
+    public YesNoEnum getMultiuserMode() {
+        return multiuserMode;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setMultiuserMode(YesNoEnum multiuserMode) {
+        this.multiuserMode = multiuserMode;
     }
 
-    public String getName() {
-        return name;
+    public YesNoEnum getPostPremoderation() {
+        return postPremoderation;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPostPremoderation(YesNoEnum postPremoderation) {
+        this.postPremoderation = postPremoderation;
     }
 
-    public String getValue() {
-        return value;
+    public YesNoEnum getStatisticsIsPublic() {
+        return statisticsIsPublic;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setStatisticsIsPublic(YesNoEnum statisticsIsPublic) {
+        this.statisticsIsPublic = statisticsIsPublic;
     }
 }

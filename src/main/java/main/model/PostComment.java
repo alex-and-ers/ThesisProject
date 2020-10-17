@@ -15,9 +15,8 @@ public class PostComment
     @NotNull
     private long id;
 
-    @ManyToOne (cascade=CascadeType.ALL)
-    @JoinColumn (name="post_comments_id")
-    private PostComment parentId;
+    @Column (name="parent_id")
+    private long parentId;
 
     @ManyToOne
     @JoinColumn(name = "posts_id")
@@ -37,7 +36,7 @@ public class PostComment
     @NotNull
     private String text;
 
-    public PostComment(@NotNull long id, PostComment parentId, @NotNull Post postId,
+    public PostComment(@NotNull long id, long parentId, @NotNull Post postId,
                        @NotNull User userId, @NotNull Date time, @NotNull String text)
     {
         this.id = id;
@@ -56,11 +55,11 @@ public class PostComment
         this.id = id;
     }
 
-    public PostComment getParentId() {
+    public long getParentId() {
         return parentId;
     }
 
-    public void setParentId(PostComment parentId) {
+    public void setParentId(long parentId) {
         this.parentId = parentId;
     }
 
